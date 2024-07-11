@@ -1,0 +1,105 @@
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+// color
+$font: #fff;
+$bg: #000;
+$link: #69b1ff;
+
+$yellow-1: #f0bb2b;
+$yellow-2: #fedf61;
+
+// common
+.flex {
+  display: flex;
+}
+.gap-1 {
+  gap: 1em;
+}
+
+// style
+.cta-btn {
+  background: linear-gradient(90deg, $yellow-1, $yellow-2);
+  border: 0;
+  border-radius: 40px;
+  color: #000;
+  // margin-left: 10px;
+  padding: 10px 32px;
+  font-size: 1em;
+  height: auto;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out;
+}
+.cta-btn:hover {
+  background: linear-gradient(90deg, $yellow-2, $yellow-1)!important;
+}
+.cta-btn:active {
+  border: unset!important;
+}
+
+/* Head */
+.head {
+  padding: 10px 35px;
+  height: 68px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo img {
+  width: 203px;
+}
+.right {
+  display: flex;
+  align-items: center;
+}
+.right-nav ul {
+  list-style-type: none;
+  display: flex;
+
+  li {
+    padding: 0 20px;
+
+    a {
+      color: #fff;
+      text-decoration: none;
+    }
+    a:hover {
+      color: #69b1ff;
+    }
+  }
+}
+
+/* Foot */
+.foot {
+  margin-top: auto;
+}
+
+// main
+.main {
+  flex-grow: 1;
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
