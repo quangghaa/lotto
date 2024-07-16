@@ -6,10 +6,13 @@
 // color
 $font: #fff;
 $bg: #000;
+$bg-modal: #1b1b1b;
+$bg-disable: #ffffff70;
 $link: #69b1ff;
 
 $yellow-1: #f0bb2b;
 $yellow-2: #fedf61;
+$font-yellow: #f5c11c;
 
 // common
 .flex {
@@ -17,6 +20,53 @@ $yellow-2: #fedf61;
 }
 .gap-1 {
   gap: 1em;
+}
+.font-xl {
+  font-size: 2em;
+}
+.font-sm {
+  font-size: 0.8em;
+}
+h4 {
+  margin: unset;
+}
+.divider {
+  height: 1px;
+  background: $font;
+  opacity: 0.25;
+}
+.font-blur {
+  word-wrap: break-word;
+  color: #fff;
+  font-weight: 400;
+  opacity: 0.7;
+}
+p {
+  margin: unset;
+}
+.between {
+  justify-content: space-between;
+}
+.text-end {
+  text-align: end;
+}
+.text-center {
+  text-align: center;
+}
+.align-center {
+  align-items: center;
+}
+.font-yellow {
+  color: $font-yellow;
+}
+.copy-icon {
+  position: absolute;
+  top:0;
+  right: 0;
+  padding: 0.5em;
+}
+.copy-icon:hover {
+  cursor: pointer;
 }
 
 // style
@@ -33,10 +83,10 @@ $yellow-2: #fedf61;
     border-color 0.15s ease-in-out;
 }
 .cta-btn:hover {
-  background: linear-gradient(90deg, $yellow-2, $yellow-1)!important;
+  background: linear-gradient(90deg, $yellow-2, $yellow-1) !important;
 }
 .cta-btn:active {
-  border: unset!important;
+  border: unset !important;
 }
 
 /* Head */
@@ -54,9 +104,11 @@ $yellow-2: #fedf61;
   display: flex;
   align-items: center;
 }
+
 .right-nav ul {
   list-style-type: none;
   display: flex;
+  padding: unset;
 
   li {
     padding: 0 20px;
@@ -68,6 +120,89 @@ $yellow-2: #fedf61;
     a:hover {
       color: #69b1ff;
     }
+  }
+}
+.modal-connect .ant-modal-content {
+  background: $bg-modal !important;
+  color: $font;
+  height: 80vh;
+  overflow: auto;
+
+  .ant-modal-body {
+    font-size: 1rem;
+    font-family: "Jost", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+}
+.wallet-state {
+  position: relative;
+  input {
+    display: block;
+    width: calc(100% - 1.75em);
+  
+    padding: 0.375em 0.75em;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: white;
+    // color: #212529;
+    // background-color: #fff;
+    background-clip: padding-box;
+    // border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0.25em;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+}
+.reward-box {
+  background: linear-gradient(90deg, #f0bb2a, #ffe266 50%, #f0bb2a);
+  padding: 1em;
+  border-radius: 16px;
+  position: relative;
+  color: $bg;
+
+  &--gray {
+    background: linear-gradient(90deg, #fffffff5, #ebebebba 50%, #fff);
+  }
+}
+
+.connect-link-btn {
+  background: $font-yellow;
+  padding: 8px 15px;
+  border: 0;
+  border-radius: 8px;
+  display: inline-block;
+  font-weight: 600;
+  height: fit-content;
+}
+.connect-link-btn:hover {
+  opacity: .7;
+  background: $font-yellow!important;
+}
+
+.wallet-values {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  gap: 10px; /* Optional: Add space between grid items */
+}
+
+.reward-level {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto;
+  gap: 10px; /* Optional: Add space between grid items */
+
+  &__item {
+    padding: 0.5em;
+    text-align: center;
+    background: $bg-disable;
+    border-radius: 8px;
   }
 }
 
@@ -102,4 +237,66 @@ $yellow-2: #fedf61;
 
 .read-the-docs {
   color: #888;
+}
+
+/* Styles for medium devices (tablets) */
+@media only screen and (max-width: 1024px) {
+  .nav-mobile {
+    display: block;
+    position: relative;
+    background: $bg !important;
+  }
+  .nav-desktop {
+    display: none;
+  }
+  .right-mobile {
+    display: block;
+    padding: 0.5em 1em;
+    font-size: 16px;
+  }
+  .right-mobile:hover {
+    cursor: pointer;
+  }
+  .right {
+    flex-direction: column;
+  }
+  .close-icon {
+    position: absolute;
+    right: 1.5em;
+    top: 1em;
+    color: $font;
+    padding: 0.5em;
+  }
+  .close-icon:hover {
+    cursor: pointer;
+  }
+  .right-nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  .right-btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+  }
+}
+
+/* Styles for large devices (desktops/laptops) */
+@media only screen and (min-width: 1025px) {
+  .nav-mobile {
+    display: none;
+  }
+  .nav-desktop {
+    display: block;
+  }
+  .right-mobile {
+    display: none;
+  }
+  .right-btn-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1em;
+  }
 }
